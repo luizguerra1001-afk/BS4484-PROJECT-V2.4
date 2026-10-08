@@ -12,7 +12,7 @@ Projeto Android nativo importado do arquivo `BS4484 PROJECT V2.4.zip` fornecido 
 
 ## Build no GitHub Actions
 
-O workflow `.github/workflows/android-apk.yml` está configurado para um runner `macos-14`. Ele instala Java 17, Android SDK 30, Build Tools 30.0.3, NDK 21.4.7075529 e Gradle 7.6.4; após uma compilação bem-sucedida, publica o APK debug como artefato da execução por 14 dias.
+O workflow `.github/workflows/android-apk.yml` está configurado para um runner `macos-14`. Ele instala Java 17, Android SDK 30, Build Tools 30.0.3, NDK LTS 30.0.16248370 e Gradle 7.6.4; após uma compilação bem-sucedida, publica o APK debug como artefato da execução por 14 dias.
 
 ## Estado atual e ressalva
 
