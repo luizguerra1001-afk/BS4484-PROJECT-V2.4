@@ -16,7 +16,7 @@ O workflow `.github/workflows/android-apk.yml` está configurado para um runner 
 
 ## Estado atual e ressalva
 
-O ZIP recebido **não contém** os fontes `src/main/java/com/akn/MainActivity.java` e `src/main/java/com/akn/MenuService.java`, embora o manifesto faça referência a essas classes. Foi adicionado um setup Gradle e o manifesto foi corrigido. O workflow agora tenta compilar mesmo assim e registra um aviso; se a compilação técnica passar, o APK pode ser baixado como artefato da execução. Como as classes estão ausentes, não se pode garantir que o aplicativo abra ou funcione corretamente. Não foi incluído APK no commit.
+O ZIP recebido não continha `MainActivity.java` nem `MenuService.java`, embora o manifesto os exigisse. Foram adicionadas classes mínimas para que a Activity abra com `activity_main.xml` e o serviço declarado não provoque `ClassNotFoundException`; o botão informa que a lógica Java original do menu não veio no pacote. Isso corrige a causa do crash de abertura, mas **não reconstitui a implementação original do menu nem conecta os recursos nativos ao app**. O workflow universal compila `armeabi-v7a` e `arm64-v8a` e publica o APK de debug como artefato.
 
 ## Observação sobre o conteúdo
 
