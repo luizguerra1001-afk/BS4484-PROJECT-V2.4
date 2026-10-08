@@ -2,21 +2,26 @@
 
 Projeto Android nativo importado do arquivo `BS4484 PROJECT V2.4.zip` fornecido pelo usuário.
 
-## Estrutura e parâmetros presentes
+## Parâmetros do projeto
 
-- Aplicativo Android com `applicationId` `com.akn`.
-- `compileSdkVersion 30`, `minSdkVersion 19`, `targetSdkVersion 29` e ABI `armeabi-v7a` definidos no `build.gradle`.
-- Fontes C/C++ e configuração `ndk-build` em `src/main/jni/`.
-- Bibliotecas nativas pré-compiladas e recursos Android em `src/main/`.
+- `applicationId`: `com.akn`
+- `compileSdkVersion`: 30; `minSdkVersion`: 19; `targetSdkVersion`: 29
+- ABI configurada: `armeabi-v7a`
+- Fontes nativas e build via NDK em `src/main/jni/`
+- Bibliotecas nativas pré-compiladas e recursos Android em `src/main/`
 
-## Estado de compilação
+## Build no GitHub Actions
 
-**Não foi possível gerar um APK reproduzível com o conteúdo recebido.** O pacote não contém os fontes Java referenciados pelo manifesto (`com.akn.MainActivity` e `com.akn.MenuService`), nem `gradlew`, `settings.gradle` ou a configuração de repositórios/plugins Gradle. O DEX incluído contém classes de recursos/build e telemetria de IDE, mas não contém essas classes do aplicativo. O ambiente usado para importar também não tinha Android SDK/NDK ou Gradle instalados.
+O workflow `.github/workflows/android-apk.yml` está configurado para um runner `macos-14`. Ele instala Java 17, Android SDK 30, Build Tools 30.0.3, NDK 21.4.7075529 e Gradle 7.6.4; após uma compilação bem-sucedida, publica o APK debug como artefato da execução por 14 dias.
 
-Esses arquivos precisam ser recuperados do autor/projeto original antes que um APK funcional possa ser reconstruído. Nenhum APK foi criado ou incluído neste repositório.
+## Bloqueio atual
+
+O ZIP recebido **não contém** os fontes `src/main/java/com/akn/MainActivity.java` e `src/main/java/com/akn/MenuService.java`, embora o manifesto faça referência a essas classes. Também não contém wrapper/configuração Gradle funcional. Foi adicionado um setup Gradle e o manifesto foi corrigido, mas o APK **não pode ser compilado até que os dois fontes originais sejam restaurados**. O workflow para com erro explícito enquanto estiverem ausentes, em vez de criar um APK incompleto.
+
+Nenhum APK está incluído neste repositório.
 
 ## Observação sobre o conteúdo
 
-Os fontes incluem referências a funções de modificação de jogo (por exemplo, aimbot, ESP, chams e hooks). Este repositório é público conforme solicitado pelo proprietário da conta; verifique direitos de redistribuição e regras do jogo antes de reutilizar o conteúdo.
+Os fontes incluem referências a funções de modificação de jogo (por exemplo, aimbot, ESP, chams e hooks). Este repositório é público conforme solicitado; verifique direitos de redistribuição e regras do jogo antes de reutilizar o conteúdo.
 
-Não foi fornecida uma licença no pacote. Na ausência de uma licença, não se presume permissão de reutilização por terceiros.
+Não foi fornecida licença no pacote. Na ausência de licença, não se presume permissão de reutilização por terceiros.

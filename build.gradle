@@ -1,7 +1,19 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.4.2'
+    }
+}
+
 apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 30
+    ndkVersion '21.4.7075529'
+
     defaultConfig {
         applicationId "com.akn"
         minSdkVersion 19
@@ -13,6 +25,7 @@ android {
         }
         signingConfig signingConfigs.debug
     }
+
     buildTypes {
         release {
             shrinkResources false
@@ -25,6 +38,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     externalNativeBuild {
         ndkBuild {
             path file('src/main/jni/Android.mk')
@@ -32,7 +46,6 @@ android {
     }
 }
 
-//dependencies must be placed below 'android' brackets to get it work on AIDE
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
