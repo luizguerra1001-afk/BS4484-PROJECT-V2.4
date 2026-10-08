@@ -14,11 +14,9 @@ Projeto Android nativo importado do arquivo `BS4484 PROJECT V2.4.zip` fornecido 
 
 O workflow `.github/workflows/android-apk.yml` está configurado para um runner `macos-14`. Ele instala Java 17, Android SDK 30, Build Tools 30.0.3, NDK 21.4.7075529 e Gradle 7.6.4; após uma compilação bem-sucedida, publica o APK debug como artefato da execução por 14 dias.
 
-## Bloqueio atual
+## Estado atual e ressalva
 
-O ZIP recebido **não contém** os fontes `src/main/java/com/akn/MainActivity.java` e `src/main/java/com/akn/MenuService.java`, embora o manifesto faça referência a essas classes. Também não contém wrapper/configuração Gradle funcional. Foi adicionado um setup Gradle e o manifesto foi corrigido, mas o APK **não pode ser compilado até que os dois fontes originais sejam restaurados**. O workflow para com erro explícito enquanto estiverem ausentes, em vez de criar um APK incompleto.
-
-Nenhum APK está incluído neste repositório.
+O ZIP recebido **não contém** os fontes `src/main/java/com/akn/MainActivity.java` e `src/main/java/com/akn/MenuService.java`, embora o manifesto faça referência a essas classes. Foi adicionado um setup Gradle e o manifesto foi corrigido. O workflow agora tenta compilar mesmo assim e registra um aviso; se a compilação técnica passar, o APK pode ser baixado como artefato da execução. Como as classes estão ausentes, não se pode garantir que o aplicativo abra ou funcione corretamente. Não foi incluído APK no commit.
 
 ## Observação sobre o conteúdo
 
