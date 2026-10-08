@@ -6,13 +6,13 @@ Projeto Android nativo importado do arquivo `BS4484 PROJECT V2.4.zip` fornecido 
 
 - `applicationId`: `com.akn`
 - `compileSdkVersion`: 30; `minSdkVersion`: 19; `targetSdkVersion`: 29
-- ABI configurada: `armeabi-v7a`
+- ABIs configuradas no APK universal: `armeabi-v7a` e `arm64-v8a`
 - Fontes nativas e build via NDK em `src/main/jni/`
 - Bibliotecas nativas pré-compiladas e recursos Android em `src/main/`
 
 ## Build no GitHub Actions
 
-O workflow `.github/workflows/android-apk.yml` está configurado para um runner `macos-14`. Ele instala Java 17, Android SDK 30, Build Tools 30.0.3, NDK LTS 30.0.16248370 e Gradle 7.6.4; após uma compilação bem-sucedida, publica o APK debug como artefato da execução por 14 dias.
+O workflow `.github/workflows/android-apk.yml` está configurado para um runner `macos-14`. Ele instala Java 17, Android SDK 30, Build Tools 30.0.3, NDK LTS 30.0.16248370 e Gradle 7.6.4; compila as ABIs `armeabi-v7a` e `arm64-v8a` e, após uma compilação bem-sucedida, publica o APK debug como artefato da execução por 14 dias.
 
 ## Estado atual e ressalva
 
